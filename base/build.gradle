@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply from: '../config-android.gradle'
+
+android { defaultConfig { buildConfigField "String", "LAST_FM_APIKEY", LAST_FM_APIKEY } }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// DEPENDENCIES                                                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+dependencies {
+
+    core()
+    kotlin()
+    dagger()
+    archComponents()
+    view()
+    testing()
+    network()
+    rx()
+}

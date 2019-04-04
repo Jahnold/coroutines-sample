@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply from: '../config-android.gradle'
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// DEPENDENCIES                                                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+dependencies {
+
+    implementation project(':base')
+
+    core()
+    kotlin()
+    dagger()
+    archComponents()
+    view()
+    testing()
+    rx()
+    network()
+}

@@ -1,0 +1,34 @@
+@file:Suppress("MemberVisibilityCanBePrivate", "HasPlatformType")
+
+package com.jahnold.coroutines.search.viewmodel
+
+import com.jahnold.coroutines.base.navigation.NavigationService
+import com.jahnold.coroutines.base.search.SearchService
+import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.verifyZeroInteractions
+import org.junit.Test
+import org.mockito.Mockito
+
+class SearchViewModelTest {
+
+    val searchService = Mockito.mock(SearchService::class.java)
+    val navigationService = Mockito.mock(NavigationService::class.java)
+
+    val viewModel = SearchViewModel(searchService, navigationService)
+
+    @Test
+    fun `should not pass null searches to service`() {
+
+        viewModel.search(null)
+        verifyZeroInteractions(searchService)
+    }
+
+    @Test
+    fun `should pass valid search input to service`() {
+
+        val query = "album"
+
+        viewModel.search(query)
+        verify(searchService).search(query)
+    }
+}

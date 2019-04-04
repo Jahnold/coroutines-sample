@@ -1,0 +1,19 @@
+apply plugin: 'com.android.application'
+apply from: '../config-android.gradle'
+
+dependencies {
+
+    implementation project(':base')
+    implementation project(':feature-search')
+    implementation project(':feature-list')
+    implementation project(':feature-details')
+
+    core()
+    kotlin()
+    dagger()
+    archComponents()
+    view()
+    testing()
+    rx()
+    network()
+}
